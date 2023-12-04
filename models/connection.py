@@ -3,8 +3,13 @@ from mongoengine import *
 from bson import json_util
 import json
 from models.coursesModel import CoursesUdemy  # Assuming your folder structure is correct
+from dotenv import load_dotenv
+import os
 
-connect(host = "mongodb+srv://Team83:s6S1lQaT6eCTcCi7@trumio.2osprji.mongodb.net/Trumio")
+load_dotenv()
+
+mongo_uri =  os.environ.get("MONGO_URI")
+connect(host = str(mongo_uri))
 # class CoursesUdemy(DynamicDocument):
 #     meta = {'collection': 'CoursesUdemy'}
 #     pass
